@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+*{
+    scroll-behavior: smooth;
+   
+}
+.productSlider {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+}
+
+.CarouselImage {
+  width: 100%;
+  height: 400px;
+  object-fit: contain;
+}

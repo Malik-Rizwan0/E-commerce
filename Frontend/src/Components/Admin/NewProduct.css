@@ -1,0 +1,163 @@
+.newProductContainer {
+  flex: 1;
+  top: 10px;
+  /* min-height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9fafb; /* light gray background */
+  padding: 100px 2rem 2rem 2rem !important;
+}
+
+.createProductForm {
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px; /* center card size */
+  background: #fff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.createProductForm h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: tomato; /* slate gray */
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.createProductForm > div {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.createProductForm > div > svg {
+  position: absolute;
+  left: 0.8rem;
+  font-size: 1.4rem;
+  color: #6b7280; /* gray-500 */
+}
+
+.createProductForm input,
+.createProductForm select,
+.createProductForm textarea {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem; /* padding left for icon */
+  border: 1px solid #d1d5db; /* gray-300 */
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.createProductForm input:focus,
+.createProductForm select:focus,
+.createProductForm textarea:focus {
+  border-color: tomato; /* orange-500 (matches tomato button) */
+}
+
+#createProductFormFile input {
+  padding: 0.6rem;
+  border-radius: 8px;
+}
+
+#createProductFormFile input::file-selector-button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background: #f3f4f6; /* gray-100 */
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+#createProductFormFile input::file-selector-button:hover {
+  background: #e5e7eb; /* gray-200 */
+}
+
+#createProductFormImage {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+#createProductFormImage img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+.previewWrapper {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.previewWrapper img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.removeBtn {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+
+#createProductBtn {
+  width: 100%;
+  padding: 0.9rem;
+  background: tomato; /* orange-500 */
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all  0.2s;
+}
+
+#createProductBtn:hover {
+  background: rgb(250, 69, 37); /* orange-600 */
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .newProductContainer{
+    padding: 40px 0px 16px 0px !important;
+  }
+  .createProductForm {
+
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+
+  .createProductForm h1 {
+    font-size: 1.4rem;
+  }
+
+  .createProductForm input,
+  .createProductForm select,
+  .createProductForm textarea {
+    font-size: 0.9rem;
+  }
+}

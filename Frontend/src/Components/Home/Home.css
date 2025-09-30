@@ -1,0 +1,196 @@
+.banner {
+  background: url("/arrangement-black-friday-shopping-carts-with-copy-space.jpg");
+  background-position: center;
+  background-size: cover;
+  height: calc(100vh - 112px);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+
+}
+
+.banner>h1 {
+  margin: 2vmax;
+  font: 600 2.5vmax "Roboto";
+}
+
+.banner>p {
+  font: 300 1.4vmax "Roboto";
+}
+
+.banner>a>button {
+  margin-bottom: 5vmax;
+  margin-top: 5vmax;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 0;
+  padding: 1vmax;
+  transition: all 0.5s;
+  width: 11vmax;
+  font: 500 1vmax "Roboto";
+  color: #4C4C4C;
+
+}
+
+.banner>a>button:hover {
+  background-color: rgba(255, 255, 255, 0);
+
+  color: white;
+}
+
+.banner::after {
+  content: "";
+  width: 100%;
+  height: 100vmin;
+  background-color: #ffffff;
+  position: absolute;
+  /* top: 18.5%; */
+  left: 0;
+  clip-path: polygon(100% 70%, 0% 90.7%, 100% 100%);
+  max-width: 100%;
+}
+
+.heading {
+  text-align: center;
+  font: 600 40px "Roboto" ;
+  padding: 1vmax;
+  color: #4C4C4C;
+
+  margin: 5vmax auto;
+
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 10px;
+  text-decoration-color: #4C4C4C !important;
+}
+
+.featureContainer {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.ProductCard {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  margin: 2vmax;
+  color: rgba(48, 48, 48);
+  flex-wrap: wrap;
+  transition: all 0.5s;
+  padding: 0.5vmax;
+  border: 1px solid rgba(0, 0, 0, 0.226);
+  border-radius: 5px;
+}
+
+.ProductCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ProductCard>img {
+  width: 100%;
+  object-position: center;
+  object-view-box: fill;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+
+.ProductCard>div>span {
+  margin: 0.5vmax;
+  font: 300 16px "Roboto";
+
+}
+
+.ProductCard>.ratings {
+  display: flex;
+  align-items: center;
+  margin: 0.5vmax;
+}
+
+.ProductCard>h3 {
+
+  margin: 1vmax 0.5vmax;
+  margin-bottom: 0px;
+  font: 500 20px "Roboto";
+}
+
+.ProductCard>span {
+  font: 500 1.2vmax "Roboto";
+  color: tomato;
+  margin: 0.5vmax;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  .banner>h1 {
+    font: 600 30px "Roboto";
+  }
+
+  .banner::after {
+    clip-path: polygon(100% 65%, 0% 90%, 100% 100%);
+  }
+
+  
+
+  .heading {
+    font-size: 35px;
+  }
+}
+
+/* Mobile (max 600px) */
+@media (max-width: 767.9px) {
+  .banner {
+    max-height: 100vw;
+    min-height: fit-content;
+  }
+
+  .banner>h1 {
+    font: 600 25px "Roboto";
+  }
+
+  .banner>a>button {
+    width: auto;
+  }
+
+  .banner::after {
+    clip-path: polygon(100% 73%, 0% 90%, 100% 100%);
+
+  }
+
+  .heading {
+    font-size: 25px;
+  }
+
+  .ProductCard {
+    width: 43%;
+  }
+ 
+
+}
+
+@media screen and (max-width : 500px) {
+  .banner {
+    height: 100vw;
+  }
+
+  .banner::after {
+    clip-path: polygon(100% 80%, 0% 100%, 100% 100%);
+  }
+
+  .heading {
+    font-size: 20px;
+  }
+  .ProductCard {
+    width: 100%;
+    max-width: 400px;
+  }
+}

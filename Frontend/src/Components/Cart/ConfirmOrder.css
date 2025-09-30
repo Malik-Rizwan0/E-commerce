@@ -1,0 +1,186 @@
+.confirmOrderPage {
+  min-height: 100vh;
+  background-color: #fafafa;
+  display: grid !important;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;
+  
+
+}
+
+.confirmOrderPage > div:last-child {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 2rem;
+}
+
+.confirmshippingArea {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+.confirmshippingArea > p {
+  font: 600 1.5rem "Manrope", sans-serif;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.confirmshippingAreaBox,
+.confirmCartItemsContainer {
+  margin: 1.5rem 0;
+}
+
+.confirmshippingAreaBox > div {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.confirmshippingAreaBox > div > p {
+  font: 500 1rem "Manrope", sans-serif;
+  color: #333;
+}
+.confirmshippingAreaBox > div > span {
+  margin-left: 1rem;
+  font: 400 0.95rem "Manrope", sans-serif;
+  color: #777;
+}
+
+.confirmCartItems {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.confirmCartItems > p {
+  font: 600 1.5rem "Manrope", sans-serif;
+  margin-bottom: 1rem;
+}
+
+.confirmCartItemsContainer {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.confirmCartItemsContainer > div {
+  display: flex;
+  font: 400 1rem "Manrope", sans-serif;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: #f9f9f9;
+}
+
+.confirmCartItemsContainer > div:hover {
+  background: #f1f1f1;
+}
+
+.confirmCartItemsContainer > div > img {
+  width: 50px;
+  border-radius: 0.5rem;
+}
+
+.confirmCartItemsContainer > div > a {
+  color: #444;
+  margin: 0 1rem;
+  width: 60%;
+  text-align: left;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.confirmCartItemsContainer > div > a:hover {
+  color: tomato;
+}
+
+.confirmCartItemsContainer > div > span {
+  font: 400 0.9rem "Manrope", sans-serif;
+  color: #666;
+}
+
+.orderSummary {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.orderSummary > p {
+  text-align: center;
+  font: 600 1.5rem "Manrope", sans-serif;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.orderSummary > div > div {
+  display: flex;
+  font: 500 1rem "Manrope", sans-serif;
+  justify-content: space-between;
+  margin: 1rem 0;
+  color: #444;
+}
+
+.orderSummary > div > div > span {
+  color: #777;
+}
+
+.orderSummaryTotal {
+  display: flex;
+  font: 600 1rem "Manrope", sans-serif;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 0;
+  color: #222;
+}
+
+.orderSummary > button {
+  background-color: tomato;
+  color: white;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font: 600 1rem "Manrope", sans-serif;
+}
+
+.orderSummary > button:hover {
+  background-color: #d63a22;
+}
+
+@media screen and (max-width: 768px) {
+  .confirmOrderPage {
+    grid-template-columns: 1fr;
+    padding: 1rem 0.5rem;
+  }
+
+  .confirmOrderPage > div:last-child {
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+
+  .confirmshippingArea,
+  .confirmCartItems,
+  .orderSummary {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .confirmCartItemsContainer > div {
+    font-size: 0.9rem;
+  }
+  .updateOrderForm{
+    padding: 1rem !important;
+  }
+}

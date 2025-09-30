@@ -1,0 +1,75 @@
+.productListContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: #fff;
+  border-left: 1px solid rgba(0, 0, 0, 0.158);
+  overflow-x: auto; /* ✅ allows scrolling if table overflows */
+}
+#productListHeading {
+  margin: 2rem;
+  padding: 0.5rem;
+  font: 400 2rem "Roboto";
+  color: rgba(0, 0, 0, 0.637);
+  text-align: center;
+  transition: all 0.5s;
+  box-sizing: border-box;
+}
+
+.productListTable {
+  background: #fff;
+  border: none !important;
+}
+
+.productListTable div {
+  font: 300 1rem "Roboto";
+  color: rgba(0, 0, 0, 0.678);
+  border: none !important;
+}
+
+.productListTable a,
+.productListTable button {
+  color: rgba(0, 0, 0, 0.527);
+  transition: all 0.5s;
+}
+
+.productListTable a:hover {
+  color: tomato;
+}
+
+.productListTable button:hover {
+  color: rgb(236, 30, 30);
+}
+
+.MuiDataGrid-columnHeader div {
+  color: #fff;
+}
+
+/* ---------- Responsive ---------- */
+/* Make text a bit more consistent on small screens */
+@media screen and (max-width: 768px) {
+  .sidebar{
+    width: 50px;
+  }
+  .productListTable div {
+    font-size: 0.9rem;   /* more stable than vw for readability */
+  }
+
+  .productListTable a,
+  .productListTable button {
+    display: inline-block;  /* stack but not full width */
+    margin: 0.2rem;
+  }
+}
+
+/* Extra for very small screens */
+@media screen and (max-width: 480px) {
+  .productListTable div {
+    font-size: 0.8rem;
+  }
+  
+  #productListHeading {
+    font-size: 1.2rem;
+  }
+}

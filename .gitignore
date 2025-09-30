@@ -1,3 +1,12 @@
+.env
+Backend/config/config.json
+Frontend/.env
+
+node_modules/
+Frontend/node_modules/
+
+tmp/
+
 # Built things
 _Debug/
 Compiled/

@@ -1,0 +1,57 @@
+.orderSuccess {
+  margin: auto;
+  text-align: center;
+  padding: 5vmax 2vmax; /* reduced padding for better balance */
+  min-height: 60vh; /* more flexible than fixed 50vh */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.orderSuccess svg {
+  font-size: 6vmax;
+  color: green; /* matches your inline sx */
+  margin-bottom: 1.5rem;
+}
+
+.orderSuccess h6 {
+  font-size: 2vmax;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.orderLink {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 1vmax 3vmax;
+  cursor: pointer;
+  font: 400 1vmax "Roboto", sans-serif;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.orderLink:hover {
+  background-color: #555;
+}
+
+/* 📱 Responsive styles */
+@media screen and (max-width: 600px) {
+  .orderSuccess svg {
+    font-size: 18vw;
+  }
+
+  .orderSuccess h6 {
+    font-size: 5vw;
+    margin: 2vmax 0;
+  }
+
+  .orderLink {
+    padding: 3vw 6vw;
+    font: 400 4vw "Roboto", sans-serif;
+    margin: 2vmax;
+  }
+}

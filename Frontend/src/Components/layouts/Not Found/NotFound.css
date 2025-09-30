@@ -1,0 +1,47 @@
+.PageNotFound {
+  margin: auto;
+  text-align: center;
+  padding: 5rem;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.PageNotFound > svg {
+  font-size: 4rem;
+  color: tomato;
+}
+
+.PageNotFound > p {
+  font-size: 1.5rem;
+}
+
+.PageNotFound > a {
+  background-color: rgb(51, 51, 51);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  font: 400 1rem "Roboto";
+  text-decoration: none;
+  margin: 1.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .PageNotFound > a {
+    padding: 0.8rem 1.5rem;
+    font: 400 1rem "Roboto";
+    margin: 1rem;
+  }
+
+  .PageNotFound > svg {
+    font-size: 8rem;
+  }
+
+  .PageNotFound > p {
+    margin: 1rem;
+    font-size: 1.2rem;
+  }
+}

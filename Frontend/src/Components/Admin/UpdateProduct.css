@@ -1,0 +1,142 @@
+.updateProductContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f9fafb;
+  padding: 80px 2rem;
+}
+
+.updateProductForm {
+  padding: 2rem;
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.updateProductForm h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #111827; /* dark gray */
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+  width: 100%;  
+  
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background: #f9fafb;
+  transition: all 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: #10b981;
+  background: #fff;
+  outline: none;
+}
+
+#updateProductFormFile input {
+  border: 1px dashed #d1d5db;
+  padding: 0.7rem;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #f9fafb;
+}
+
+#updateProductFormFile input::file-selector-button {
+  padding: 0.4rem 0.9rem;
+  border: none;
+  background: #10b981;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+#updateProductFormFile input::file-selector-button:hover {
+  background: #059669;
+}
+
+.imagePreviewContainer {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.imagePreviewContainer img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s;
+}
+
+.imagePreviewContainer img:hover {
+  transform: scale(1.05);
+}
+
+#updateProductBtn {
+  width: 100%;
+  padding: 1rem;
+  background: #10b981;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#updateProductBtn:hover {
+  background: #059669;
+}
+
+#updateProductBtn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 767.9px) {
+  .updateProductContainer{
+    padding: 40px 8px;
+  }
+  .updateProductForm {
+    padding: 1.5rem 0.8rem;
+    max-width: 95%;
+  }
+
+  .updateProductForm h1 {
+    font-size: 1.5rem;
+  }
+}

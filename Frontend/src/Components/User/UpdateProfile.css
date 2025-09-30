@@ -1,0 +1,108 @@
+:root {
+  --primary-color: tomato;
+  --font-color: #333;
+  --bg-light: #ffffff;
+  --border-color: #ddd;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+  --input-height: 45px;
+}
+
+.updateProfileContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+  background-color: #f5f5f5;
+  padding: 2rem;
+}
+
+.updateProfileBox {
+  background-color: var(--bg-light);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 400px;
+  width: 100%;
+}
+
+.updateProfileHeading {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.updateProfileForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.updateProfileName,
+.updateProfileEmail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border-color);
+  padding: 0 1rem;
+  border-radius: var(--radius);
+  height: var(--input-height);
+  background: #fafafa;
+}
+
+.updateProfileName input,
+.updateProfileEmail input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+  background: transparent;
+}
+
+#updateProfileImage {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#updateProfileImage img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+}
+
+#updateProfileImage input[type="file"] {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.updateProfileBtn {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 7s;
+}
+
+.updateProfileBtn:hover {
+  background-color: #d13b1d;
+}
+@media screen and (max-width: 767.9px) {
+  .updateProfileContainer {
+    padding: 1.5rem 0.5rem;
+    height: 100vh;
+  }
+  .updateProfileBox{
+    padding: 1.5rem 0.5rem;
+    max-width: 400px;
+  }
+  #updateProfileImage input[type="file"] {
+    width: 100%;
+  }
+}

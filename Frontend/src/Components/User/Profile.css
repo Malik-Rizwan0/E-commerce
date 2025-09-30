@@ -1,0 +1,134 @@
+.profileContainer {
+  padding-top: 5rem; /* instead of 20% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  width: 100dvw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  background-color: #fff;
+}
+
+/* Shared structure */
+.profileLeft,
+.profileRight {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* LEFT SIDE */
+
+.profileTitle {
+  color: rgba(0, 0, 0, 0.55);
+  font: 500 clamp(1.25rem, 2vw, 2rem) "Roboto";
+  margin-bottom: 1rem;
+  transform: translateX(-8rem) translateY(-1rem);
+}
+
+.profileAvatar {
+  width: clamp(120px, 40%, 250px);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+.profileAvatar:hover {
+  transform: scale(1.05);
+}
+
+.editProfileBtn {
+  border: none;
+  background-color: tomato;
+  font: 400 clamp(0.875rem, 1vw, 1rem) "Roboto";
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  width: min(60%, 200px);
+  margin: 2rem 0;
+  text-align: center;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+.editProfileBtn:hover {
+  background-color: rgb(204, 78, 56);
+}
+
+/* RIGHT SIDE */
+.profileRight {
+  justify-content: start;
+  align-items: flex-start;
+  padding: 2rem 5%;
+}
+
+.profileInfo h4 {
+  color: #000;
+  font: 400 clamp(1rem, 1.5vw, 1.25rem) "Roboto";
+}
+.profileInfo p {
+  color: rgba(0, 0, 0, 0.42);
+  font: 400 clamp(0.875rem, 1vw, 1rem) cursive;
+  margin: 0.25rem 0;
+}
+
+.profileActions {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+.profileActions a {
+  border: none;
+  background-color: rgb(68, 68, 68);
+  font: 400 clamp(0.875rem, 1vw, 1rem) "Roboto";
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  margin: 0.75rem 0;
+  transition: background-color 0.3s ease;
+}
+.profileActions a:hover {
+  background-color: rgb(31, 31, 31);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .profileContainer {
+    flex-direction: column;
+    padding-top: 4rem;
+    overflow-y: scroll;
+  }
+
+  .profileTitle {
+    transform: translateX(0) translateY(0);
+    margin-bottom: 0.5rem;
+  }
+  .profileRight {
+    text-align: center;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
+  .profileInfo h4 {
+    font: 400 clamp(1.5rem, 3vw, 2rem) "Roboto";
+  }
+  .profileInfo p {
+    font: 400 clamp(1.25rem, 2.5vw, 1.75rem) cursive;
+    margin: 0.5rem 0;
+  }
+
+  .profileActions {
+    width: 100%;
+  }
+  .profileActions a {
+    font: 400 clamp(1rem, 2vw, 1.25rem) "Roboto";
+    padding: 1rem;
+    margin: 1.25rem 0;
+  }
+}

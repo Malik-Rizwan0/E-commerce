@@ -1,0 +1,45 @@
+.updateOrderForm {
+  margin: 5rem 0;
+  padding: 3rem;
+  background: #fff;
+}
+
+.updateOrderForm > div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.updateOrderForm > div > select {
+  width: 100%;
+  margin: 2rem 0;
+  padding: 1rem 2.5rem;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.267);
+  border-radius: 4px;
+  font: 300 0.9rem cursive;
+  outline: none;
+}
+
+.updateOrderForm > div > svg {
+  position: absolute;
+  transform: translateX(1rem);
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.623);
+}
+
+/* ---------- Responsive ---------- */
+@media screen and (max-width: 600px) {
+  .updateOrderForm {
+    padding: 2rem;
+  }
+
+  .updateOrderForm > div > select {
+    padding: 1.2rem 2rem;
+    font: 300 1rem cursive;
+  }
+
+  .updateOrderForm > div > svg {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,127 @@
+.productsHeading {
+  margin: 2vmax auto;
+  width: fit-content;
+  padding: 1vmax 2vmax;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  font: 600 40px "Roboto", sans-serif;
+  color: #333;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vmax;
+  padding: 0 5vmax;
+  justify-content: center;
+  min-height: 40vh;
+}
+
+.paginationBox {
+  display: flex;
+  justify-content: center;
+  margin: 4vmax 0;
+}
+
+.pagination {
+  display: flex;
+  gap: 0.5vmax;
+  padding: 0;
+}
+
+.page-item {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.7vmax 1.2vmax;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  list-style: none;
+}
+
+.page-link {
+  text-decoration: none;
+  font: 400 1vmax "Roboto", sans-serif;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.page-item:hover {
+  background-color: #f4f4f4;
+}
+
+.page-item:hover .page-link {
+  color: #000;
+}
+
+.pageItemActive {
+  background-color: tomato;
+}
+
+.pageItemActive .page-link,
+.pageLinkActive {
+  color: white !important;
+}
+
+.filterBox {
+  width: 15vmax;
+  position: sticky;
+  top: 10vmax;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 1.5vmax;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  height: fit-content;
+}
+.categoryBox {
+  margin-top: 1vmax;
+}
+
+.category-link {
+  color: #444;
+  font: 400 0.95vmax "Roboto", sans-serif;
+  margin: 0.5vmax 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.category-link:hover {
+  color: tomato;
+}
+
+.filterBox > fieldset {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1vmax;
+  border-radius: 5px;
+  margin-top: 2vmax;
+}
+
+@media screen and (max-width: 768px) {
+  .productsHeading {
+    font-size: 30px;
+  }
+
+  .products {
+    padding: 0 2vmax;
+  }
+
+  .filterBox {
+    position: static;
+    width: 90%;
+    margin: 2vmax auto;
+  }
+
+  .category-link {
+    font-size: 1.5vmax;
+  }
+
+  .page-link {
+    font-size: 1.5vmax;
+  }
+
+  .page-item {
+    padding: 1vmax 2vmax;
+  }
+}

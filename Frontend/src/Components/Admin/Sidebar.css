@@ -1,0 +1,112 @@
+.sidebar {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  padding: 64px 0 ; 
+}
+
+.sidebar > a:first-child {
+  padding-top: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.493);
+  font: 200 16px "Roboto"; 
+    padding: 32px; 
+  transition: all 0.5s;
+}
+.sidebar a:hover {
+  color: tomato;
+  transform: scale(1.1);
+}
+
+.sidebar a > P {
+  display: flex;
+  align-items: center;
+}
+.sidebar a > p > svg {
+  margin-right: 8px; /* 0.5rem → 8px */
+}
+
+.MuiTypography-root {
+  background-color: #fff !important;
+}
+/* Toggle button */
+.sidebar-toggle {
+  display: none;
+  position: relative;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  z-index: 1100; /* Above sidebar */
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar-toggle {
+    display: inline-block;
+    width: 40px;
+    margin-top: 50px;
+    /* background: #000; */
+    z-index: 20;
+    text-align: left;
+  }
+  .sidebar-toggle svg {
+    height: 32px  ;
+    width : 32px;
+    background: #0000002a;
+    color: tomato;
+    border-radius: 50%;
+
+    z-index: 51 !important;
+  }
+  .CloseIcon{
+    position: fixed;
+    text-align: end;
+    width: 90% !important;
+    margin-top: 10px;
+    margin-right: 20px !important;
+    z-index: 10000 !important;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100% !important;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 47;
+    background: #fff;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px; /* Adjust width as needed */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000; /* Ensure it overlays other content */
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar a {
+    padding: 16px; /* Reduce padding for smaller screens */
+  }
+  
+}

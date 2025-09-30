@@ -1,0 +1,54 @@
+.project{
+  max-width: 400px;
+  margin: auto;
+}
+.button {
+  --blackish: #4c4c4c; /* dark gray */
+  font-size: 15px;
+  padding: 0.7em 2.7em;
+  position: relative;
+  border-radius: 0.6em;
+  border: 2px solid var(--blackish);
+  background: transparent;
+  color: var(--blackish);
+  font-family: inherit;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow:
+    inset 0 0 10px rgba(76, 76, 76, 0.4),
+    0 0 9px 3px rgba(76, 76, 76, 0.1);
+}
+
+/* Hover glow */
+.button:hover {
+  color: #fff; /* white text */
+  background: var(--blackish); /* dark gray background */
+  box-shadow:
+    inset 0 0 20px rgba(76, 76, 76, 0.8),
+    0 0 15px 5px rgba(76, 76, 76, 0.3);
+}
+
+/* Shine effect */
+.button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5em;
+  width: 4em;
+  height: 100%;
+  transform: skewX(-20deg);
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3), /* lighter shine */
+    transparent
+  );
+  opacity: 0.9;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Shine animation */
+.button:hover:before {
+  transform: translateX(20em) skewX(-20deg);
+}

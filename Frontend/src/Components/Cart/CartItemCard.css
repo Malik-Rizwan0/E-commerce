@@ -1,0 +1,76 @@
+.CartItemCard {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  padding: 1rem;
+}
+/* 
+.CartItemCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+} */
+
+.CartItemCardImage > img {
+  width: 100px !important;
+  height: 100px !important;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.CartItemCard > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 2rem;
+  
+}
+
+.CartItemCardPrice , .CartItemCardDetails , .CartItemCardRemove{
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  
+}
+.CartItemCardRemove{
+  color: tomato;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767.9px) {
+  .CartItemCard {
+    padding: 10px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .CartItemCardImage{
+    width: 120px !important;
+    text-align: center;
+  }
+  .CartItemCardImage > img {
+    width: 60px !important;
+    height: 60px !important;
+    margin: auto;
+    margin-bottom: 0;
+  }
+
+  .CartItemCard > div {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .CartItemCard > div > a {
+    font-size: 1.2rem;
+  }
+
+  .CartItemCard > div > span {
+    display: none;
+  }
+
+
+  .CartItemCard > div > p {
+    font-size: 1rem;
+  }
+}

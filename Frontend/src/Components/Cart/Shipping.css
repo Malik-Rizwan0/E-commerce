@@ -1,0 +1,124 @@
+.shippingContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 1rem; /* breathing space */
+  box-sizing: border-box;
+}
+
+.shippingBox {
+  background-color: #fff;
+  width: 25rem; /* fixed scalable width */
+  /* height: 90vh; */
+  box-sizing: border-box;
+  border-radius: 0.6rem; /* subtle polish */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.shippingHeading {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.664);
+  font: 400 1.3rem "Roboto", sans-serif;
+  padding: 1.3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+  width: 60%;
+  margin: 0 auto;
+}
+
+.shippingForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  justify-content: center;
+  gap: 1.2rem;
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.shippingForm > div {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.shippingForm > div > input,
+.shippingForm > div > select {
+  width: 100%;
+  padding: 1rem 3.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.267);
+  border-radius: 0.4rem;
+  font: 300 0.9rem "Roboto", cursive;
+  outline: none;
+  transition: border 0.2s ease-in;
+}
+
+.shippingForm > div > input:focus,
+.shippingForm > div > select:focus {
+  border-color: tomato;
+}
+
+.shippingForm > div > svg {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.623);
+  pointer-events: none;
+}
+
+.shippingBtn {
+  border: none;
+  background-color: tomato;
+  color: #fff;
+  font: 500 1rem "Roboto", sans-serif;
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-radius: 0.4rem;
+}
+
+.shippingBtn:hover {
+  background-color: rgb(179, 66, 46);
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .shippingBox {
+    width: 95%;
+    height: auto;
+    min-height: 90vh;
+  }
+
+  .shippingHeading {
+    font: 400 1.5rem "Roboto", sans-serif;
+    padding: 1rem;
+    width: 80%;
+  }
+
+  .shippingForm {
+    padding: 2rem;
+    gap: 1rem;
+  }
+
+  .shippingForm > div > input,
+  .shippingForm > div > select {
+    padding: 1rem 2.5rem;
+    font: 300 1rem "Roboto", cursive;
+  }
+
+  .shippingForm > div > svg {
+    font-size: 1.5rem;
+    left: 1rem;
+  }
+
+  .shippingBtn {
+    font: 500 1rem "Roboto", sans-serif;
+    padding: 1rem;
+  }
+}
