@@ -1,51 +1,51 @@
 const ExpressError = require("../utils/ExpressError.js")
 const warpAsync = require("../utils/warpAsync.js")
 const User = require("../models/userModel.js")
-const {sendToken} = require("../utils/jwtToken.js")
+const { sendToken } = require("../utils/jwtToken.js")
 const sendEmail = require("../utils/sendEmail.js")
 const crypto = require("crypto")
 const cloudinary = require("../utils/cloudinary.js");
 
 exports.registerUser = warpAsync(async (req, res, next) => {
-  try {
-    const { name, email, password } = req.body;
+    try {
+        const { name, email, password } = req.body;
 
 
-    if (!name || !email || !password) {
-      throw new ExpressError(400, 'Please provide all required fields');
+        if (!name || !email || !password) {
+            throw new ExpressError(400, 'Please provide all required fields');
+        }
+
+        let avatarData = {
+            public_id: "default_avatar",
+            url: "/images/default_avatar.png",
+        };
+
+        if (req.file) {
+            const result = await cloudinary.uploader.upload(req.file.path, {
+                folder: "avatars",
+                width: 150,
+                height: 150,
+                crop: "fill",
+            });
+
+            avatarData = {
+                public_id: result.public_id,
+                url: result.secure_url,
+            };
+        }
+
+        const user = await User.create({
+            name,
+            email,
+            password,
+            avatar: avatarData,
+        });
+
+        sendToken(res, user, 201);
+    } catch (err) {
+        console.error("Register error:", err);
+        res.status(500).json({ success: false, message: err.message });
     }
-
-    let avatarData = {
-      public_id: "default_avatar",
-      url: "/images/default_avatar.png",
-    };
-
-    if (req.file) {
-      const result = await cloudinary.uploader.upload(req.file.path, {
-        folder: "avatars",
-        width: 150,
-        height: 150,
-        crop: "fill",
-      });
-
-      avatarData = {
-        public_id: result.public_id,
-        url: result.secure_url,
-      };
-    }
-
-    const user = await User.create({
-      name,
-      email,
-      password,
-      avatar: avatarData,
-    });
-
-    sendToken(res, user, 201);
-  } catch (err) {
-    console.error("Register error:", err);
-    res.status(500).json({ success: false, message: err.message });
-  }
 });
 
 
@@ -63,7 +63,7 @@ exports.loginUser = warpAsync(async (req, res, next) => {
     if (!isPasswordMatched) {
         throw new ExpressError(401, 'Invalid email or password');
     }
-    
+
     sendToken(res, user, 200);
     // const token = user.getJWTToken();
     // res.status(200).json({
@@ -77,7 +77,8 @@ exports.logout = warpAsync(async (req, res, next) => {
     res.cookie("token", null, {
         expires: new Date(Date.now()),
         httpOnly: true,
-        // secure: process.env.NODE_ENV === 'production' // Set secure to true in production
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "None",
     });
     res.status(200).json({
         success: true,
@@ -96,8 +97,8 @@ exports.forgotPassword = warpAsync(async (req, res, next) => {
         throw new ExpressError(404, 'User not found with this email');
     }
     // Generate reset password token
-    const  resetToken = user.getResetPasswordToken();
-    
+    const resetToken = user.getResetPasswordToken();
+
     await user.save({ validateBeforeSave: false });
 
     const resetUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
@@ -119,12 +120,12 @@ exports.forgotPassword = warpAsync(async (req, res, next) => {
         throw new ExpressError(500, 'Email could not be sent');
     }
 })
- 
+
 // reset password
 exports.resetPassword = warpAsync(async (req, res, next) => {
     const resetPasswordToken = crypto.createHash("sha256").update(req.params.token).digest("hex");
-;
-    
+    ;
+
     const user = await User.findOne({
         resetPasswordToken,
         resetPasswordExpire: { $gt: Date.now() }
@@ -139,7 +140,7 @@ exports.resetPassword = warpAsync(async (req, res, next) => {
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
     await user.save();
-    
+
     sendToken(res, user, 200);
 })
 
@@ -168,12 +169,12 @@ exports.updatePassword = warpAsync(async (req, res, next) => {
     }
     user.password = req.body.newPassword;
     await user.save();
-    
+
     sendToken(res, user, 200);
 })
 
 // get all users by admin
- exports.getAllUsers = warpAsync(async (req, res, next) => {
+exports.getAllUsers = warpAsync(async (req, res, next) => {
     const users = await User.find();
     if (!users) {
         throw new ExpressError(404, 'No users found');
@@ -201,55 +202,55 @@ exports.updateUserRole = warpAsync(async (req, res, next) => {
         email: req.body.email,
         role: req.body.role // Assuming role is provided in the request body
     };
-    
+
     const user = await User.findByIdAndUpdate(req.params.id, newUserData, {
         new: true,
         runValidators: true,
         useFindAndModify: false
     });
-    
+
     if (!user) {
         throw new ExpressError(404, `User not found with ID: ${req.params.id}`);
     }
-    
+
     res.status(200).json({
         success: true,
         user
     });
-}) 
+})
 
 exports.updateProfile = warpAsync(async (req, res, next) => {
-  const newUserData = {
-    name: req.body.name,
-    email: req.body.email,
-  };
-
-  // If a new avatar was uploaded
-  if (req.file) {
-    const user = await User.findById(req.user.id);
-
-    // Destroy the old avatar
-    const imageId = user.avatar.public_id;
-    await cloudinary.uploader.destroy(imageId);
-
-    // req.file already contains Cloudinary upload info
-    newUserData.avatar = {
-      public_id: req.file.filename, // public_id
-      url: req.file.path,           // secure_url
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email,
     };
-  }
 
-  // Update user in DB
-  const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
-    new: true,
-    runValidators: true,
-    useFindAndModify: false,
-  });
+    // If a new avatar was uploaded
+    if (req.file) {
+        const user = await User.findById(req.user.id);
 
-  res.status(200).json({
-    success: true,
-    user,
-  });
+        // Destroy the old avatar
+        const imageId = user.avatar.public_id;
+        await cloudinary.uploader.destroy(imageId);
+
+        // req.file already contains Cloudinary upload info
+        newUserData.avatar = {
+            public_id: req.file.filename, // public_id
+            url: req.file.path,           // secure_url
+        };
+    }
+
+    // Update user in DB
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false,
+    });
+
+    res.status(200).json({
+        success: true,
+        user,
+    });
 });
 
 // Delete user by admin
@@ -258,9 +259,9 @@ exports.deleteUser = warpAsync(async (req, res, next) => {
     if (!user) {
         throw new ExpressError(404, `User not found with ID: ${req.params.id}`);
     }
-    
+
     await User.findByIdAndDelete(req.params.id);
-    
+
     res.status(200).json({
         success: true,
         message: "User deleted successfully"
