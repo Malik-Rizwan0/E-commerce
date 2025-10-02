@@ -18,9 +18,12 @@ app.use(cookieParser())
 // Backend/app.js (or server.js if you don't separate)
 const cors = require("cors");
 
+
+if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+
 const allowedOrigins = [
-  "http://localhost:5173",
-  process.env.FRONTEND_URL, // will set this later on Render
+  process.env.FRONTEND_URL,
+  process.env.LOCAL_URL || "http://localhost:5173"
 ];
 
 app.use(cors({
