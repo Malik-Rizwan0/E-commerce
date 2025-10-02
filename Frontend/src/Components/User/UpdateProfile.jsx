@@ -6,7 +6,7 @@ import FaceIcon from "@mui/icons-material/Face";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProfile, loadUser, clearErrors, resetUpdate } from "../../features/UserSlice.js";
 import { useSnackbar } from "notistack";
-import MetaData from "../Layouts/MetaData.jsx";
+import MetaData from "../layouts/MetaData.jsx";
 import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
