@@ -10,7 +10,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'https://e-commerce-ji7u.onrender.com/',
         changeOrigin: true,
         secure: false,
       },
