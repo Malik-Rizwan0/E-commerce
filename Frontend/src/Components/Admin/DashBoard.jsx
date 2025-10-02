@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Sidebar from "./Sidebar";
-import "./Dashboard.css";
+import "./DashBoard.css";
 import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Doughnut, Line } from "react-chartjs-2";
