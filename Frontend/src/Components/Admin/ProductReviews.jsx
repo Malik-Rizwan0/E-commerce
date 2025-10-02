@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import "./productReviews.css";
+import "./ProductReviews.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
   clearErrors,

@@ -20,7 +20,7 @@ import {
   resetUpdate,
 } from "../../features/orderSlice";
 
-import "./processOrder.css";
+import "./ProcessOrder.css";
 
 const ProcessOrder = () => {
   const { id } = useParams();
