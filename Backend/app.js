@@ -19,21 +19,22 @@ app.use(cookieParser())
 const cors = require("cors");
 
 
-if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+
 
 const allowedOrigins = [
-  process.env.FRONTEND_URL,
-  process.env.LOCAL_URL || "http://localhost:5173"
+  "http://localhost:5173",
+  process.env.FRONTEND_URL, // e.g. https://rixi-store.netlify.app
 ];
 
+// ✅ Proper callback with origin inside
 app.use(cors({
   origin: (origin, cb) => {
-    if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
-    return cb(new Error("Not allowed by CORS"));
+    if (!origin) return cb(null, true); // Allow Postman, curl, etc.
+    if (allowedOrigins.includes(origin)) return cb(null, true);
+    return cb(new Error("Not allowed by CORS: " + origin));
   },
   credentials: true
 }));
-
 
 //  routes 
 app.use('/api/v1', product);
