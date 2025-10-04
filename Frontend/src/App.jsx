@@ -38,7 +38,6 @@ import About from './Components/layouts/About/About.jsx';
 import ContactUs from './Components/layouts/Contact/ContactUs.jsx';
 import ProductReviews from './Components/Admin/ProductReviews.jsx';
 
-
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
@@ -49,15 +48,22 @@ function App() {
     setStripeApiKey(data.stripeApiKey);
   }
 
-  useEffect(() => {
-    dispatch(loadUser());
-    getStripeApiKey();
-  }, [dispatch]);
+useEffect(() => {
+  dispatch(loadUser());
+  getStripeApiKey();
+}, [dispatch]);
+
+// Optional fallback ONLY IF no backend key returned
+useEffect(() => {
+  if (!stripeApiKey) {
+    setStripeApiKey(import.meta.env.VITE_STRIPE_API_KEY);
+  }
+}, [stripeApiKey]);
 
   window.addEventListener("contextmenu", (e) => e.preventDefault());
   return (
     <Router>
-       <Header />
+      <Header />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -78,16 +84,18 @@ function App() {
             <Route path="/password/update" element={<UpdatePassword />} />
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/order/confirm" element={<ConfirmOrder />} />
-            {stripeApiKey && (
-              <Route
-                path="/process/payment"
-                element={
+            <Route
+              path="/process/payment"
+              element={
+                stripeApiKey ? (
                   <Elements stripe={loadStripe(stripeApiKey)}>
                     <Payment />
                   </Elements>
-                }
-              />
-            )}
+                ) : (
+                  <div>Loading payment module...</div>
+                )
+              }
+            />
             <Route path="/success" element={<OrderSuccess />} />
             <Route path="/orders" element={<MyOrders />} />
             <Route path="/order/:id" element={<OrderDetails />} />
