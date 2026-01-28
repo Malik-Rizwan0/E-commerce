@@ -38,15 +38,18 @@ app.use(
     credentials: true, // ✅ Required for cookies
   })
 );
-
+app.head("/uptime", (req, res) => {
+  res.status(200).end();
+});
+app.get("/uptime", (req, res) => {
+  res.status(200).send("OK");
+});
 //  routes 
 app.use('/api/v1', product);
 app.use('/api/v1', user);
 app.use('/api/v1', order);
 app.use('/api/v1', payment);
-app.get("/uptime", (req, res) => {
-  res.status(200).send("OK");
-});
+
 
 app.use(errorHandler)
 module.exports = app;
